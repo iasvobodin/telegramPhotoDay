@@ -4,7 +4,7 @@ const startAction = require('./actions/start')
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 bot.start(ctx => {
-    console.log(ctx);
+    console.log(ctx, 'CTX', ctx.from, 'CTX FROM');
     return startAction(ctx)
 })
 
