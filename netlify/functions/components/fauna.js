@@ -14,6 +14,7 @@ exports.newUser = (id) => {
         ).then(ret => {
             res(true)
         }).catch(err => {
+            console.log(err, 'FROM FAUNA');
             res(false)
         });
     })
