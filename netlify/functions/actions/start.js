@@ -3,6 +3,7 @@ const { getUser } = require('../components/helper')
 
 module.exports = async ctx => {
     const { id, isBot, name } = getUser(ctx.from)
+    console.log(id, isBot, name, 'from start.js')
 
     if (isBot) {
         return ctx.reply(`Sorry I only interact with humans!`)
