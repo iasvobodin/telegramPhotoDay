@@ -4,7 +4,6 @@ const client = new faunadb.Client({ secret: process.env.FAUNA_SECRET_KEY_SERVER 
 const q = faunadb.query;
 
 exports.newUser = (id) => {
-    console.log('create new user');
     return new Promise((res, rej) => {
         client.query(
             q.Create(
