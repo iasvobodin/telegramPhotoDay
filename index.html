@@ -1,12 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Anastasia Svobodina" />
+    <meta name="description" content="Links for contact" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta property="og:title" content="SvobodinaPhoto" />
+    <meta property="og:type" content="website">
+    <meta name="facebook-domain-verification" content="iu0tfv17lm8mf84159lo9wmqh8p9h8" />
+    <meta property="og:image" content="/img/ava.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="300" />
+    <meta property="og:image:height" content="300" />
+    <meta property="og:url" content="https://link.svobodinaphoto.com/" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:description" content="The best photographer ever" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="link.svobodinaphoto.com">
+    <meta property="twitter:url" content="https://link.svobodinaphoto.com/">
+    <meta name="twitter:title" content="SvobodinaPhoto">
+    <meta name="twitter:description" content="The best photographer ever">
+    <meta name="twitter:image" content="https://link.svobodinaphoto.com/img/ava.jpg">
+    <link rel="canonical" href="https://link.svobodinaphoto.com/" />
+    <link rel="icon" href="./favicon.svg">
+    <link rel="mask-icon" href="./favicon.svg" color=”# 000000">
+    <link rel="stylesheet" href="./style.css">
+    <title>SvobodinaPhoto</title>
+    <!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '535938474355898');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=535938474355898&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
 </head>
+
+<script>
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    window.addEventListener('resize', () => {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    });
+    
+    window.vkAsyncInit = function() {
+  console.log('VK JS API загружено');
+  /**
+   * Инициализация пикселя ВКонтакте
+   */
+  const pixel = new VK.Pixel('VK-RTRG-1060480-3pHm6');
+
+  /**
+   * Генерация простого события посещения текущей страницы. Если найдутся аудитории с подходящими правилами,
+   * то пользователь будет в них добавлен.
+   */
+  pixel.Hit();
+  console.log('Сгенерировано простое событие посещения страницы');
+};
+</script>
+
 <body>
-    <h1>Test bot</h1>
+    <main class="link">
+        <h1>SvobodinaPhoto</h1>
+        <div class="holder">
+            <div class="ava">
+                <img wght="200px" height="133px" src="./img/ava.jpg" alt="Аватарка">
+            </div>
+        </div>
+        <a class="contact__link" href="https://vk.com/svobodinaphoto">Группа vk</a>
+        <a class="contact__link" href="https://www.instagram.com/svobodinaphoto/">Instagram</a>
+        <a class="contact__link" href="https://vk.me/aasvobodina">Написать в Vk</a>
+        <a class="contact__link" href="https://t.me/svobodinaphoto">Написать в Telegram</a>
+        <a class="contact__link" href="https://wa.me/%2B79514616243">Написать в WhatsApp</a>
+        <a class="contact__link" href="viber://chat?number=79514616243">Написать в Viber</a>
+        <a class="contact__link" href="tel:+79514616243">Позвонить</a>
+        <a class="contact__link" href="./price.html">Цены</a>
+        <img width="100px" height="77px" class="logo" src="./img/logo.svg" alt="Я просто барашек">
+    </main>
+    <script src="https://vk.com/js/api/openapi.js?169" async></script>
 </body>
+
 </html>

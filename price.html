@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ivan Svobodin" />
+    <meta name="description" content="Links for contact" />
+    <link rel="canonical" href="https://link.svobodinaphoto.com/pice/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price</title>
+    <link rel="icon" href="./favicon.svg">
+    <link rel = ”mask-icon” href = ”./favicon.svg” color = ”# 000000">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <script type="module">
+        import pricedata from './price.json' assert { type: "json" };
+        import { createApp } from './petite-vue.es.js'
+  createApp({pricedata}).mount()
+    </script>
+    
+    <h2 class="price__title">Цены</h2>
+    <div class="price__image">
+        <img
+            src="https://raw.githubusercontent.com/iasvobodin/svs/images/static/image/webp/1024/19-03-02-20-58-27.webp"
+            alt=""
+        />
+    </div>
+    <div v-scope class="price__holder">
+            <div v-for="el in pricedata" class="price__tarif">
+                <h3>{{el.title}}</h3>
+                <ul style="align-self: stretch;">
+                        <li v-for="element in el.body">{{element}}</li>
+                </ul>
+                <h4 style="align-self: end;justify-self: center;">
+                    Цена : {{el.price}}
+                </h4>
+            </div>
+    </div>
+</body>
+</html>
