@@ -45,6 +45,7 @@ module.exports = async ctx => {
         //     }
 
     } catch (e) {
+        console.log(e);
         return ctx.reply(`Error occured`)
     }
 
