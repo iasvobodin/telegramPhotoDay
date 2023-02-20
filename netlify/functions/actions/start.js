@@ -36,6 +36,7 @@ module.exports = async ctx => {
             `,
             }),
         })
+        return ctx.reply(`Added ${name} to db!`)
         // const result = await response.json();
         //     let isNewUser = await newUser(id)
         //     if (isNewUser) {
