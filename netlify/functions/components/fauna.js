@@ -1,7 +1,7 @@
-const faunadb = require('faunadb')
+// const faunadb = require('faunadb')
 
-const client = new faunadb.Client({ secret: process.env.FAUNA_SECRET_KEY });
-const q = faunadb.query;
+// const client = new faunadb.Client({ secret: process.env.FAUNA_SECRET_KEY });
+// const q = faunadb.query;
 
 exports.newUser = (id) => {
     return new Promise((res, rej) => {
@@ -13,8 +13,10 @@ exports.newUser = (id) => {
         ).then(ret => {
             res(true)
         }).catch(err => {
-            console.log(err, 'FROM FAUNA');
+            // console.log(err, 'FROM FAUNA');
             res(false)
         });
     })
 }
+
+
