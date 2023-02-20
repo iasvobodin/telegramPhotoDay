@@ -1,4 +1,3 @@
-const fetch = require('node-fetch')
 exports.handler = async function (event, context) {
     const response = await fetch('https://graphql.fauna.com/graphql', {
         method: 'POST',

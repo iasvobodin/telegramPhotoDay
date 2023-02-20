@@ -1,6 +1,6 @@
 // const { newUser } = require('../components/fauna')
-const { getUser } = require('../components/helper')
-const fetch = require('node-fetch')
+import { getUser } from "../components/helper";
+
 module.exports = async ctx => {
     // console.log(ctx.from, 'ctx.from');
     const { id, isBot, name } = getUser(ctx.from)
