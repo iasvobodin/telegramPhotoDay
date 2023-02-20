@@ -23,7 +23,7 @@ module.exports = async ctx => {
 
                 createTodo(data: {
              
-                title: ${id} ${name}
+                title: "${id} ${name}"
              
                 completed: false
              
