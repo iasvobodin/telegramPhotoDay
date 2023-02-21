@@ -21,7 +21,7 @@ exports.handler = async function (event, context) {
 
         ]
 
-        await bot.telegram.sendMediaGroup(chatId, media)
+        await bot.telegram.sendMediaGroup(576118532, media)
         await bot.telegram.sendMessage(576118532, "сообщеня юхуху");
         return {
             statusCode: 200,
