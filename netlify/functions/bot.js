@@ -17,7 +17,7 @@ bot.start(ctx => {
     console.log(ctx.message.chat, 'chat', ctx.message.from, 'CTX FROM');
     return startAction(ctx)
 })
-
+bot.on(message('sticker'), (ctx) => ctx.reply('👍'));
 exports.handler = async event => {
     try {
         await bot.handleUpdate(JSON.parse(event.body));
