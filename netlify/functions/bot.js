@@ -1,6 +1,6 @@
 import { Telegraf } from "telegraf";
 import startAction from "./actions/start"
-
+console.log("it's work");
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 bot.start(ctx => {
