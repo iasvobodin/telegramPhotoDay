@@ -19,24 +19,22 @@ module.exports = async ctx => {
             },
             body: JSON.stringify({
                 query: `
-            mutation CreateATodo {
-
-                createTodo(data: {
-             
-                title: "${id} ${name}"
-             
-                completed: false
-             
-                }) {
-             
-                title   completed
-                }
-             
-             }
+                mutation CreateUser {
+                    createUser(data: {
+                       id: ${ctx.from.id} 
+                       is_bot: ${ctx.from.is_bot}
+                       first_name: ${ctx.from.first_name}
+                       last_name: ${ctx.from.last_name}
+                       username: ${ctx.from.username}
+                       language_code: ${ctx.from.username}
+                   }){
+                        id
+                    }
+                 }
             `,
             }),
         })
-        return ctx.reply(`Added ${name} to db!`)
+        return ctx.reply(`Added ${ctx.from.username} to db!`)
         // const result = await response.json();
         //     let isNewUser = await newUser(id)
         //     if (isNewUser) {

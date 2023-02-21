@@ -1,9 +1,12 @@
-type Todo {
-   title: String!
-   completed: Boolean
+type User {
+   id: String! @unique,
+   is_bot: Boolean,
+   first_name: String!,
+   last_name: String!,
+   username: String!,
+   language_code: String!
 }
 
 type Query {
-   allTodos: [Todo!]
-   todosByCompletedFlag(completed: Boolean!): [Todo!]
+   allUsers: [User!]
 }
