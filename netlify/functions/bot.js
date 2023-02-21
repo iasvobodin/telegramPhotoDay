@@ -7,11 +7,13 @@ import { Telegraf } from "telegraf";
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 bot.start(async ctx => {
+    console.log('inside bot start');
     if (ctx.from.is_bot) {
         return ctx.reply(`Sorry I only interact with humans!`)
     }
 
     try {
+        console.log('inside bot start try');
         await fetch('https://graphql.fauna.com/graphql', {
             method: 'POST',
             headers: {
@@ -50,10 +52,10 @@ bot.start(async ctx => {
     }
 })
 exports.handler = async event => {
-    console.log(event.body, "event.body");
+    console.log(JSON.parse(event.body), "event.body");
     try {
         await bot.handleUpdate(JSON.parse(event.body));
-        bot.on(message('sticker'), (ctx) => ctx.reply('👍'));
+        // bot.on(message('sticker'), (ctx) => ctx.reply('👍'));
         return { statusCode: 200, body: '' };
     } catch (e) {
         console.log(e)
