@@ -21,12 +21,12 @@ module.exports = async ctx => {
                 query: `
                 mutation CreateUser {
                     createUser(data: {
-                       id: ${ctx.from.id} 
+                       id: "${ctx.from.id}" 
                        is_bot: ${ctx.from.is_bot}
-                       first_name: ${ctx.from.first_name}
-                       last_name: ${ctx.from.last_name}
-                       username: ${ctx.from.username}
-                       language_code: ${ctx.from.username}
+                       first_name: "${ctx.from.first_name}"
+                       last_name: "${ctx.from.last_name}"
+                       username: "${ctx.from.username}"
+                       language_code: "${ctx.from.username}"
                    }){
                         id
                     }
