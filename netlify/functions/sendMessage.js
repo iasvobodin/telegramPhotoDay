@@ -19,7 +19,7 @@ exports.handler = async function (event, context) {
     // const chatId = msg.chat.id;
 
     try {
-        await bot.sendMessage(576118532, 'Received your message');
+        await bot.sendMessage(39773926, 'Женуля красотуля, люблю тебя!!!');
         return {
             statusCode: 200,
             body: JSON.stringify({ message: "sending" }),
