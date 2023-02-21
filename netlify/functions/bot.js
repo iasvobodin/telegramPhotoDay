@@ -14,7 +14,7 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 //                         language_code: 'ru'
 // }
 bot.start(ctx => {
-    console.log(ctx.chat, 'CTX', ctx.from, 'CTX FROM');
+    console.log(ctx.message.chat, 'chat', ctx.message.from, 'CTX FROM');
     return startAction(ctx)
 })
 
