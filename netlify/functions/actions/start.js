@@ -11,7 +11,7 @@ module.exports = async ctx => {
     }
 
     try {
-        await fetch('https://graphql.fauna.com/graphql', {
+        const response = await fetch('https://graphql.fauna.com/graphql', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -34,6 +34,8 @@ module.exports = async ctx => {
             `,
             }),
         })
+        const result = await response.json();
+        console.log(result);
         return ctx.reply(`Added ${ctx.from.username} to db!`)
         // const result = await response.json();
         //     let isNewUser = await newUser(id)
