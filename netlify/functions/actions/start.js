@@ -37,9 +37,10 @@ module.exports = async ctx => {
         const result = await response.json();
         console.log(result, 'RESULT');
         if (result.errors) {
-            console.log('ERROR');
+            return ctx.reply(`${ctx.from.username}, вы уже подписаны на рассылку`)
+        } else {
+            return ctx.reply(`Спасибо за подписку`)
         }
-        return ctx.reply(`Added ${ctx.from.username} to db!`)
         // const result = await response.json();
         //     let isNewUser = await newUser(id)
         //     if (isNewUser) {
@@ -50,7 +51,7 @@ module.exports = async ctx => {
 
     } catch (e) {
         console.log(e);
-        return ctx.reply(`Error occured`)
+        return ctx.reply(`Что-то пошло не так`)
     }
 
 }
