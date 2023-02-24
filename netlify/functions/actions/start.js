@@ -35,7 +35,10 @@ module.exports = async ctx => {
             }),
         })
         const result = await response.json();
-        console.log(result);
+        console.log(result, 'RESULT');
+        if (result.errors) {
+            console.log('ERROR');
+        }
         return ctx.reply(`Added ${ctx.from.username} to db!`)
         // const result = await response.json();
         //     let isNewUser = await newUser(id)
