@@ -1,5 +1,5 @@
 import { Telegraf } from "telegraf";
-import startAction from "./actions/start"
+import { startAction } from "./actions/start"
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
@@ -11,7 +11,7 @@ bot.telegram.getWebhookInfo(async ctx => {
 })
 
 
-exports.handler = async event => {
+export async function handler(event) {
     try {
         await bot.handleUpdate(JSON.parse(event.body));
         return { statusCode: 200, body: '' };
