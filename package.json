@@ -21,6 +21,7 @@
 		"vite": "^4.0.0"
 	},
 	"dependencies": {
+		"imagekit": "^4.1.2",
 		"imagekit-javascript": "^1.5.4",
 		"telegraf": "^4.11.2"
 	},

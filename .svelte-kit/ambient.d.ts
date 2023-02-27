@@ -26,6 +26,7 @@
  * ```
  */
 declare module '$env/static/private' {
+	export const VITE_IMAGEKIT_PRIVATE: string;
 	export const NVM_INC: string;
 	export const TERM_PROGRAM: string;
 	export const NODE: string;
@@ -81,6 +82,7 @@ declare module '$env/static/private' {
 	export const VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
 	export const XPC_FLAGS: string;
 	export const BUILD_ID: string;
+	export const IMAGEKIT_PRIVATE: string;
 	export const npm_config_node_gyp: string;
 	export const npm_package_version: string;
 	export const URL: string;
@@ -138,6 +140,7 @@ declare module '$env/static/public' {
  */
 declare module '$env/dynamic/private' {
 	export const env: {
+		VITE_IMAGEKIT_PRIVATE: string;
 		NVM_INC: string;
 		TERM_PROGRAM: string;
 		NODE: string;
@@ -193,6 +196,7 @@ declare module '$env/dynamic/private' {
 		VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
 		XPC_FLAGS: string;
 		BUILD_ID: string;
+		IMAGEKIT_PRIVATE: string;
 		npm_config_node_gyp: string;
 		npm_package_version: string;
 		URL: string;
