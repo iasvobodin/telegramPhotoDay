@@ -1,15 +1,12 @@
 <script>
 	import ImageKit from 'imagekit-javascript';
-	// import { VITE_IMAGEKIT_PRIVATE } from '$env/static/private';
-	/* SDK initilization
-     authenticationEndpoint should be implemented on your server. Learn more here - https://docs.imagekit.io/api-reference/upload-file-api/client-side-file-upload#how-to-implement-authenticationendpoint-endpoint
-    */
+
 	let uploader, files, auth;
-	console.log(import.meta.env.VITE_SOME_KEY);
+	console.log(import.meta.env);
 	const imagekit = new ImageKit({
 		publicKey: 'public_sJZXyQphG2J9SMCstQ4aknNMoOI=',
 		urlEndpoint: 'https://ik.imagekit.io/iasvobodin',
-		authenticationEndpoint: 'https://resplendent-pudding-027073.netlify.app/api/hello'
+		authenticationEndpoint: `${import.meta.env.VITE_URL_API}api/hello`
 	});
 	async function getAuth() {
 		try {
@@ -21,13 +18,22 @@
 			console.log(error);
 		}
 	}
+
+	async function multipleUpload() {
+		await Promise.all(
+			[...files].map(async (e) => {
+				await upload(e);
+				console.log(e.name, 'is uploaded');
+			})
+		);
+	}
 	// Upload function internally uses the ImageKit.io javascript SDK
 	async function upload(data) {
 		let response;
 		try {
 			response = await imagekit.upload({
-				file: files[0],
-				fileName: files[0].name,
+				file: data,
+				fileName: data.name,
 				tags: ['tag1'],
 				extensions: [
 					{
@@ -90,13 +96,15 @@
 </script>
 
 <button on:click={getAuth}>getAuth</button>
-<form on:submit|preventDefault={upload}>
-	<input type="file" bind:files />
+<form on:submit|preventDefault={multipleUpload}>
+	<input multiple type="file" bind:files />
 
 	{#if files && files[0]}
-		<p>
-			{files[0].name}
-		</p>
+		{#each files as photo}
+			<p>
+				{photo.name}
+			</p>
+		{/each}
 	{/if}
 	<input type="submit" />
 </form>
