@@ -9,7 +9,7 @@
 	const imagekit = new ImageKit({
 		publicKey: 'public_sJZXyQphG2J9SMCstQ4aknNMoOI=',
 		urlEndpoint: 'https://ik.imagekit.io/iasvobodin',
-		authenticationEndpoint: 'http://localhost:8888/.netlify/functions/hello'
+		authenticationEndpoint: 'https://resplendent-pudding-027073.netlify.app/api/hello'
 	});
 	async function getAuth() {
 		try {
