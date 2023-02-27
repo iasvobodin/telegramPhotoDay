@@ -4,10 +4,11 @@
 	let uploader, files, auth;
 	console.log(import.meta.env);
 	const imagekit = new ImageKit({
-		publicKey: 'public_sJZXyQphG2J9SMCstQ4aknNMoOI=',
-		urlEndpoint: 'https://ik.imagekit.io/iasvobodin',
+		publicKey: 'public_zg1EKa88ulyR5u6XrMXDL07X4Dw=',
+		urlEndpoint: 'https://ik.imagekit.io/svobodinaphoto/',
 		authenticationEndpoint: `${import.meta.env.VITE_URL_API}api/hello`
 	});
+
 	async function getAuth() {
 		try {
 			const response = await fetch('api/hello');
@@ -34,14 +35,7 @@
 			response = await imagekit.upload({
 				file: data,
 				fileName: data.name,
-				tags: ['tag1'],
-				extensions: [
-					{
-						name: 'aws-auto-tagging',
-						minConfidence: 80,
-						maxTags: 10
-					}
-				]
+				useUniqueFileName: false
 			});
 		} catch (err) {
 			console.log(err); // 400
