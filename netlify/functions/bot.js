@@ -4,7 +4,7 @@ import { startAction } from "./actions/start"
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 bot.start(ctx => {
-    return startAction(ctx)
+    return startAction(ctx, bot)
 })
 
 
