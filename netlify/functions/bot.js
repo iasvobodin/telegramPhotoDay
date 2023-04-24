@@ -6,6 +6,8 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 bot.start(ctx => {
     return startAction(ctx)
 })
+
+
 bot.telegram.getWebhookInfo(async ctx => {
     console.log(ctx, 'fromWebhookinfo');
 })

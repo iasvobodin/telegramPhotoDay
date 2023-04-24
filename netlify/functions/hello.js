@@ -9,14 +9,6 @@ export async function handler(event, context) {
         urlEndpoint: "https://ik.imagekit.io/svobodinaphoto/"
     });
 
-    imagekit.listFiles({
-        skip: 10,
-        limit: 10
-    }).then(response => {
-        console.log(response);
-    }).catch(error => {
-        console.log(error);
-    });
 
     const authenticationParameters = imagekit.getAuthenticationParameters();
     console.log(authenticationParameters);
