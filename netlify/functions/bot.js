@@ -1,4 +1,4 @@
-import { Telegraf } from "telegraf";
+import { Telegraf, Markup } from "telegraf";
 import { startAction } from "./actions/start"
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
@@ -6,7 +6,12 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 bot.start(ctx => {
     return startAction(ctx, bot)
 })
-
+bot.command("onetime", ctx =>
+    ctx.reply(
+        "One time keyboard",
+        Markup.keyboard(["/simple", "/inline", "/pyramid"]).oneTime().resize(),
+    ),
+);
 
 bot.telegram.getWebhookInfo(async ctx => {
     console.log(ctx, 'fromWebhookinfo');
