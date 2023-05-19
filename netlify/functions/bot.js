@@ -6,12 +6,12 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 bot.start(ctx => {
     return startAction(ctx, bot)
 })
-bot.command("onetime", ctx =>
-    ctx.reply(
-        "One time keyboard",
-        Markup.keyboard(["/simple", "/inline", "/pyramid"]).oneTime().resize(),
-    ),
-);
+// bot.command("onetime", ctx =>
+//     ctx.reply(
+//         "One time keyboard",
+//         Markup.keyboard(["/simple", "/inline", "/pyramid"]).oneTime().resize(),
+//     ),
+// );
 
 bot.telegram.getWebhookInfo(async ctx => {
     console.log(ctx, 'fromWebhookinfo');
