@@ -1,6 +1,6 @@
 import { Telegraf, Markup } from "telegraf";
 import { startAction } from "./actions/start"
-
+import { message } from 'telegraf/filters'
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 bot.start(ctx => {
@@ -12,6 +12,20 @@ bot.start(ctx => {
 //         Markup.keyboard(["/simple", "/inline", "/pyramid"]).oneTime().resize(),
 //     ),
 // );
+
+bot.on(message("document"), async (ctx) => {
+    if (ctx.message.chat.id === 576118532) {
+        try {
+            const link = await ctx.telegram.getFileLink(ctx.message.document.file_id)
+            await ctx.reply(JSON.stringify(link, null, 2))
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+})
+
+
 
 bot.telegram.getWebhookInfo(async ctx => {
     console.log(ctx, 'fromWebhookinfo');
