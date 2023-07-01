@@ -26,6 +26,10 @@ bot.on(message("document"), async (ctx) => {
 })
 
 
+bot.hears('жопа', (ctx) => {
+    return ctx.reply("сама жопа")
+})
+
 
 bot.telegram.getWebhookInfo(async ctx => {
     console.log(ctx, 'fromWebhookinfo');
