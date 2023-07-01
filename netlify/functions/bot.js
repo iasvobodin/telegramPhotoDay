@@ -20,16 +20,16 @@ bot.on(message("text"), async (ctx) => {
         if (ctx.message.text.startsWith('Рассылка ')) {
             const media = ctx.message.text.replace('Рассылка ', '')
 
-            // const users = await getUsers()
+            const users = await getUsers()
 
-            // try {
-            //     await Promise.all(
-            //         users.map(async (e) => {
-            //             await bot.telegram.sendMessage(e.id, media)
-            //         }))
-            // } catch (error) {
-            //     console.log(error);
-            // }
+            try {
+                await Promise.all(
+                    users.map(async (e) => {
+                        await bot.telegram.sendMessage(e.id, media)
+                    }))
+            } catch (error) {
+                console.log(error);
+            }
             ctx.reply(media)
         }
         // ctx.reply(ctx.message.text)  
