@@ -13,12 +13,24 @@ bot.start(ctx => {
 //         Markup.keyboard(["/simple", "/inline", "/pyramid"]).oneTime().resize(),
 //     ),
 // );
-
+// svid 576118532
 bot.on(message("text"), async (ctx) => {
-    if (ctx.message.chat.id === 576118532) {
+    if (ctx.message.chat.id === 397739262) {
 
-        if (ctx.message.text.startsWith('Рассылка')) {
-            ctx.reply(ctx.message.text)
+        if (ctx.message.text.startsWith('Рассылка ')) {
+            const media = ctx.message.text.replace('Рассылка ', '')
+
+            // const users = await getUsers()
+
+            // try {
+            //     await Promise.all(
+            //         users.map(async (e) => {
+            //             await bot.telegram.sendMessage(e.id, media)
+            //         }))
+            // } catch (error) {
+            //     console.log(error);
+            // }
+            ctx.reply(media)
         }
         // ctx.reply(ctx.message.text)  
         // try {
