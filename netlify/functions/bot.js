@@ -1,5 +1,6 @@
 import { Telegraf, Markup } from "telegraf";
 import { startAction } from "./actions/start"
+import { getUsers } from "./actions/getUsers";
 import { message } from 'telegraf/filters'
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
@@ -26,8 +27,18 @@ bot.on(message("document"), async (ctx) => {
 })
 
 
-bot.hears('жопа', (ctx) => {
-    return ctx.reply("сама жопа")
+bot.hears('пользователи', async (ctx) => {
+    if (ctx.message.chat.id === 397739262) {
+        //message from Nastya
+        try {
+            const users = await getUsers()
+            // const link = await ctx.telegram.getFileLink(ctx.message.document.file_id)
+            await ctx.reply(JSON.stringify(users, null, 2))
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    // return ctx.reply("сама жопа")
 })
 
 
