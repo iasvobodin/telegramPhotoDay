@@ -14,14 +14,19 @@ bot.start(ctx => {
 //     ),
 // );
 
-bot.on(message("document"), async (ctx) => {
+bot.on(message("text"), async (ctx) => {
     if (ctx.message.chat.id === 576118532) {
-        try {
-            const link = await ctx.telegram.getFileLink(ctx.message.document.file_id)
-            await ctx.reply(JSON.stringify(link, null, 2))
-        } catch (error) {
-            console.log(error);
+
+        if (ctx.message.text.startsWith('Рассылка')) {
+            ctx.reply(ctx.message.text)
         }
+        // ctx.reply(ctx.message.text)  
+        // try {
+        //     const link = await ctx.telegram.getFileLink(ctx.message.document.file_id)
+        //     await ctx.reply(JSON.stringify(link, null, 2))
+        // } catch (error) {
+        //     console.log(error);
+        // }
     }
 
 })
@@ -32,13 +37,11 @@ bot.hears('пользователи', async (ctx) => {
         //message from Nastya
         try {
             const users = await getUsers()
-            // const link = await ctx.telegram.getFileLink(ctx.message.document.file_id)
             await ctx.reply(JSON.stringify(users, null, 2))
         } catch (error) {
             console.log(error);
         }
     }
-    // return ctx.reply("сама жопа")
 })
 
 
